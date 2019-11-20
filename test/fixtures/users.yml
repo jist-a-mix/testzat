@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
+
+one:
+  email: one@one.org
+  password_digest: hashed_password
+
+
+
+
