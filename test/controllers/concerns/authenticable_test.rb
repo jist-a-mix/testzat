@@ -1,3 +1,4 @@
+require 'test_helper'
 class MockController
   include Authenticable
   attr_accessor :request
@@ -7,13 +8,13 @@ class MockController
     self.request = mock_request.new({})
   end
 end
-
 class AuthenticableTest < ActionDispatch::IntegrationTest
 
   setup do
     @user = users(:one)
-    @authentication = Authentication.new
+    @authentication = MockController.new
   end
+  
 
   test 'should get user from Authorization token' do
     @authentication.request.headers['Authorization'] = JsonWebToken.encode(user_id: @user.id)
